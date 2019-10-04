@@ -4,6 +4,81 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
         
+     
+    
+        <bean id="employeeList" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="employee"></ref>
+            </list>
+        </constructor-arg>
+    </bean>
+    
+   
+    <bean id="employee" class="com.cognizant.springlearning.bean.Employee">
+    	<property name="id" value="1" />
+        <property name="name" value="Hari" />
+        <property name="salary" value="21706" />
+		<property name="permanent" value="true" />
+		<property name="dateOfBirth" value="03/17/2018" />
+		 <property name="department" ref="departmentBean" />
+		   <property name="skills">
+            <array>
+                <ref bean="skillHtml" />
+                <ref bean="skillCss" />
+                <ref bean="skillJs" />
+            </array>
+        </property>
+    </bean>
+    
+     <bean id="departments" class="com.cognizant.springlearning.dao.DepartmentDao">
+     <property name="departments">
+    	<array>
+    		<ref bean="d1" />
+            <ref bean="d2" />
+            <ref bean="d3" />
+    	</array>
+    	</property>
+    </bean>
+    
+     <bean id="d1" class="com.cognizant.springlearning.bean.Department">
+        <property name="id" value="1" />
+        <property name="name" value="Payroll" />
+    </bean> 
+    
+    <bean id="d2" class="com.cognizant.springlearning.bean.Department">
+        <property name="id" value="2" />
+        <property name="name" value="Human Resources" />
+    </bean>
+    
+     <bean id="d3" class="com.cognizant.springlearning.bean.Department">
+        <property name="id" value="3" />
+        <property name="name" value="Support" />
+    </bean>
+    
+    
+    
+    
+     <bean id="departmentBean" class="com.cognizant.springlearning.bean.Department">
+        <property name="id" value="1" />
+        <property name="name" value="Payroll" />
+    </bean>
+    
+       <bean id="skillHtml" class="com.cognizant.springlearning.bean.Skill">
+        <property name="id" value="1" />
+        <property name="name" value="HTML" />
+    </bean>
+    
+             <bean id="skillCss" class="com.cognizant.springlearning.bean.Skill">
+        <property name="id" value="2" />
+        <property name="name" value="CSS" />
+    </bean>
+    
+             <bean id="skillJs" class="com.cognizant.springlearning.bean.Skill">
+        <property name="id" value="3" />
+        <property name="name" value="JS" />
+    </bean>
+    
         
 
 
